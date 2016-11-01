@@ -1,0 +1,24 @@
+<%= form_for @users_profile do |f| %>
+	<%= f.label :firstname %><br/>
+	<%= f.text_field :first_name %><br/>
+
+	<%= f.label :last_name %><br/>
+	<%= f.text_field :last_name %><br/>
+
+	<%= f.label :tagline %><br/>
+	<%= f.text_field :tagline %><br/>
+
+	<%= f.label :bio %><br/>
+	<%= f.text_are :bio %><br/>
+
+	<%= f.label :facebookid %><br/>
+	<%= f.text_field :facebook_id %><br/>
+
+	<%= f.label :twitter_id %><br/>
+	<%= f.text_field :twitter_id %><br/>
+
+	<%= f.label :avatar %><br/>
+	<%= f.file :avatar %><br/>
+
+	<%= f.submit %>
+	<% end %>

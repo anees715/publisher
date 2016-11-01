@@ -1,0 +1,33 @@
+<header class="main-header">
+  <div class="container">
+
+    <div class="top-header">
+      <nav class="navbar navbar-default">
+          <%= link_to root_path, class: "navbar-brand" do %>
+            <%= image_tag image_url('logo.png') %>
+            <% end %>
+          
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Write an Article", new_article_path, class: "write" %></li>
+          <% if user_signed_in? %>
+          <li><%= image_tag current_user.user_profile.avatar.url, class: "header-avatar" %></li>
+          <li><%= link_to current_user.username.capitalize, current_user %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to "Sign in", new_user_session_path, style: "padding-right:5px" %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+          </ul>
+      </nav>
+  </div>
+
+  <nav class="main-nav">
+    <ul class="nav nav-pills">
+      <% @categories.each do |category| %>
+        <li role="presentation" ><%= link_to category.name,category_path(category.id) %></li>
+      <% end %>
+  </ul>
+  </nav>
+
+</div>
+</header>

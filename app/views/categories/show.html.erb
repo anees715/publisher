@@ -1,0 +1,23 @@
+<% @articles.each do |article| %>
+<div class="col-md-6 col-md-offset-1">
+  <div class="article">
+  	<div class="avatar"><%= image_tag article.user.user_profile.avatar.url %></div>
+  	<div class="user-details">
+    	<p><%= link_to article.user.username.capitalize, current_user %> in 
+    	<% article.categories.take(2).each do |category| %>
+    	 <%= link_to category.name, category_path(category) %>
+    	 <% end %>
+    </p>
+    <p class="sub"><%= article.published_on.strftime("%b %d") if article.published_on? %>
+    </p>
+    </div>
+    <h2><%= link_to article.title, article_path(article) %></h2>
+    <p class="excerpt"><%= truncate(article.body, :length => 200) %></p>
+    <%= image_tag article.featured_image.url if article.featured_image? %>
+    <%= link_to "Read more...", article_path, class: "read-more" %><br/>
+    <%= link_to "#" do %>
+    <i class="favorite glyphicon glyphicon-heart-empty"></i>
+    <% end %>
+</div>
+</div>
+<% end %>

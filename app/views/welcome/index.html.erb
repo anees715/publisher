@@ -1,0 +1,9 @@
+<% @articles.each do |article| %>
+<div class="col-md-6 col-md-offset-1">
+  <div class="article">
+    <p><%= article.user.username %>
+    <h2><%= link_to article.title, articles_path %></h2>
+    <p><%= truncate(article.body, :length => 200) %></p>
+</div>
+</div>
+<% end %>

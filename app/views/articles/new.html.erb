@@ -1,0 +1,16 @@
+<h2>Add a new article</h2>
+
+<%= form_for @article do |f| %>
+	<%= f.label :title %><br/>
+	<%= f.text_field :title %><br/>
+
+	<%= f.label :body %><br/>
+	<%= f.text_area :body %><br/>
+
+	<%= f.label :categories %><br/>
+	<%= f.collection_check_boxes :category_ids, Category.all, :id, :name %><br/>
+
+	<%= f.file_field :featured_image %>
+
+	<%= f.submit %>
+	<% end %>
