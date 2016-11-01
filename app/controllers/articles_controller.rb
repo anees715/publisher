@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
 
 	def edit
 		@article = Article.find(params[:id])
+		@comments = @article.comments
 	end
 
 	def update
