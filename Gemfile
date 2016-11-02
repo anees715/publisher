@@ -5,10 +5,15 @@ gem 'sass-rails', '>= 3.2'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'mini_magick'
 gem 'pry'
-gem 'pg', '0.18.1', group: :production
-gem 'rails_12factor', group: :production
-#gem 'rmagick', '~> 2.16'
-gem 'sqlite3', group: :development
+
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+end
+
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
