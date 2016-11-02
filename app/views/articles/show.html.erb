@@ -1,60 +1,60 @@
 
 <div class="col-md-9 col-md-offset-1">
-<div class="show-article-page">
-<div class="avatar-show"><%= image_tag @article.user.user_profile.avatar.url %></div>
-  	<div class="user-details">
+  <div class="show-article-page">
+    <div class="avatar-show"><%= image_tag @article.user.user_profile.avatar.url %></div>
+    <div class="user-details">
     	<p><%= link_to @article.user.username.capitalize, current_user %>
-    	 <p><%= @article.user.user_profile.tagline %></p>
-    	 <p class="sub"><%= @article.published_on.strftime("%b %d") if @article.published_on? %></p>
-	</div>
+        <p><%= @article.user.user_profile.tagline %></p>
+        <p class="sub"><%= @article.published_on.strftime("%b %d") if @article.published_on? %></p>
+      </div>ww
 
-<div class="show-article">
-	<h2><%= @article.title %></h2>
-	<div class="article-body">
-		<%= @article.body %>
-	</div>
-	<ul class="category-list">
-		<% @article.categories.each do |category| %>
-		<li><%= category.name.capitalize %></li>
-		<% end %>
-	</ul>
+      <div class="show-article">
+       <h2><%= @article.title %></h2>
+       <div class="article-body">
+        <%= @article.body %>
+      </div>
+      <ul class="category-list">
+        <% @article.categories.each do |category| %>
+        <li><%= category.name.capitalize %></li>
+        <% end %>
+      </ul>
 
-	<div class="user-bio">
-		<div class="avatar-show"><%= image_tag @article.user.user_profile.avatar.url %></div>
-  	<div class="user-details">
-    	<p><%= link_to @article.user.username.capitalize, current_user %>
-    	 <p><%= @article.user.user_profile.bio %></p>
-	</div>
-	</div>
-</div>
-</div>
-<%- if user_signed_in? %>
-<b>Comment as <%= current_user.username.capitalize %></b> <br/>
-<%= render partial: 'comments/new' %>
-<% else %>
-<p>Please <%= link_to t('auth.sign_in'), new_user_session_path %> or <%= link_to t('auth.sign_up'), new_user_registration_path %> to add comments</p>
-<% end %>
-<h3>Recent Comments</h3>
-<% if @article.comments.count  >= 1 %>
+      <div class="user-bio">
+        <div class="avatar-show"><%= image_tag @article.user.user_profile.avatar.url %></div>
+        <div class="user-details">
+         <p><%= link_to @article.user.username.capitalize, current_user %>
+          <p><%= @article.user.user_profile.bio %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- if user_signed_in? %>
+  <b>Comment as <%= current_user.username.capitalize %></b> <br/>
+  <%= render partial: 'comments/new' %>
+  <% else %>
+  <p>Please <%= link_to t('auth.sign_in'), new_user_session_path %> or <%= link_to t('auth.sign_up'), new_user_registration_path %> to add comments</p>
+  <% end %>
+  <h3>Recent Comments</h3>
+  <% if @article.comments.count  >= 1 %>
   <div class="comments">
     <% @article.comments.each do |comment| %>
     <div class="comment">
-    <div class="avatar">
-      <%= image_tag comment.user.user_profile.avatar.url unless comment.user.blank? %></div>
-    <div class="user-details">
-    <p><%= comment.body %></p>
-    <p><%= comment.user.username unless comment.user.blank? %></p>
-    <%- if user_signed_in? %>
-    <% if current_user.id == comment.user_id %>
-    <div class="pull-right">
-      <%= link_to "edit", edit_article_comment_path(@article, comment) %>
-    </div>
-    <% end %>
-    <% end %>
+      <div class="avatar">
+        <%= image_tag comment.user.user_profile.avatar.url unless comment.user.blank? %></div>
+        <div class="user-details">
+          <p><%= comment.body %></p>
+          <p><%= comment.user.username unless comment.user.blank? %></p>
+          <%- if user_signed_in? %>
+          <% if current_user.id == comment.user_id %>
+          <div class="pull-right">
+            <%= link_to "edit", edit_article_comment_path(@article, comment) %>
+          </div>
+          <% end %>
+          <% end %>
 
 
+        </div>
+      </div>
+      <% end %>
+      <% end %>
     </div>
-</div>
-<% end %>
-    <% end %>
-</div>

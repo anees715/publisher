@@ -1,11 +1,9 @@
 <div class="user-menu">
-    <%= link_to new_article_path, class: "btn btn-default btn-md" do %>
-    <i class="glyphicon glyphicon-plus">Add an Article</i>
-    <% end %>
+	<%= link_to "Write an Article", new_article_path, class: "btn btn-primary" %>
 </div>
 
 <ul class="nav nav-pills" style="margin-top:50px; margin-bottom:30px;">
-  <li role="presentation" class="<%= 'active' if current_page?(user_path(current_user)) %>"><%= link_to "My Articles", user_path(current_user) %></li>
-  <li role="presentation" class="<%= 'active' if current_page?(edit_user_profile_path(current_user.user_profile.id)) %>"><%= link_to "Edit My Profile", edit_user_profile_path(current_user.user_profile) %></li>
-  <li role="presentation" class="<%= 'active' if current_page?(edit_user_registration_path) %>"><%= link_to "Account Settings", edit_user_registration_path %></li>
+	<li role="presentation" class="<%= 'active' if current_page?(user_path(current_user)) %>"><%= link_to "My Articles", user_path(current_user) %></li>
+	<li role="presentation" class="<%= 'active' if current_page?(edit_user_profile_path(current_user.user_profile.id)) %>"><%= link_to "Edit My Profile", edit_user_profile_path(current_user.user_profile) %></li>
+	<li role="presentation" class="<%= 'active' if current_page?(edit_user_registration_path) %>"><%= link_to "Account Settings", edit_user_registration_path %></li>
 </ul>

@@ -41,7 +41,7 @@ class CategoriesController < ApplicationController
 	end
 
 	
-	private
+private
 
 	def category_params
 		params[:category].permit(:name)

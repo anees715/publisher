@@ -5,16 +5,17 @@ gem 'sass-rails', '>= 3.2'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'mini_magick'
 gem 'pry'
-#gem 'rmagick', '~> 2.16'
+gem 'pg', '0.18.1', group: :production
 gem 'rails_12factor', group: :production
+#gem 'rmagick', '~> 2.16'
+gem 'sqlite3', group: :development
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
-gem 'sqlite3', group: :development
-gem 'pg', '0.18.1', group: :production
+
 # Use SCSS for stylesheets
 #gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
