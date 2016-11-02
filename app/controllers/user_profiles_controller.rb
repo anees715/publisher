@@ -25,9 +25,9 @@ class UserProfilesController < ApplicationController
 	end
 
 	def update
-		@user_profile = UserProfile.new
-		if user_profile.update_attributes(user_profile_params)
-			redirect users_path, notice: "Successfully Updated"
+		@userprofile = UserProfile.find(params[:id])
+		if @userprofile.update_attributes(userprofile_params)
+			redirect_to articles_path, notice: "Successfully Updated"
 		else
 			render action: "new"
 		end
@@ -36,7 +36,7 @@ class UserProfilesController < ApplicationController
 	private
 
 	def userprofile_params
-		params.require(:user_profile).permit(:first_name, :last_name, :tagline, :bio, :facebook_id, :twitter_id, :avatar)
+		params[:user_profile].permit(:first_name, :last_name, :tagline, :bio, :facebook_id, :twitter_id, :avatar)
 	end
 
 end

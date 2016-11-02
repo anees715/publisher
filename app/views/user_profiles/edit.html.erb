@@ -1,7 +1,7 @@
 
  <%= render partial: 'layouts/user_settings_menu' %>
 
-<%= form_for @userprofile do |f| %>
+<%= form_for @userprofile, :html => {:multipart => true} do |f| %>
 	<%= f.label :firstname %><br/>
 	<%= f.text_field :first_name %><br/>
 
@@ -14,13 +14,12 @@
 	<%= f.label :bio %><br/>
 	<%= f.text_area :bio %><br/>
 
-	<%= f.label :facebookid %><br/>
+	<%= f.label :facebook_id %><br/>
 	<%= f.text_field :facebook_id %><br/>
 
 	<%= f.label :twitter_id %><br/>
 	<%= f.text_field :twitter_id %><br/>
 
-	<%= f.label :avatar %><br/>
 	<%= f.file_field :avatar %><br/>
 
 	<%= f.submit %>

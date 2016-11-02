@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@articles = Article.all
+		@articles = Article.order('created_at DESC')
 		@popular_posts = Article.order("comments_count DESC")
 	end
 
@@ -24,15 +24,15 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
+		@users = User.all
 	end
 
 	def edit
 		@article = Article.find(params[:id])
-		@comments = @article.comments
 	end
 
 	def update
-		@article = Article.new
+		@article = current_user.articles.find(params[:id])
 		if @article.update_attributes(article_params)
 			redirect_to article_path(@article), notice: "Succesfully Updated"
 		else
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
 private
 
 	def article_params
-		params[:article].permit(:title, :body, :featured_image, category_ids: [])
+		params[:article].permit(:title, :body, :featured_image, :user_id, category_ids: [])
 	end
 
 end

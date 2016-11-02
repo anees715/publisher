@@ -4,9 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :assign_navigation_menu
+ 
 
    def assign_navigation_menu
    	@categories = Category.all
    end
+
 
 end

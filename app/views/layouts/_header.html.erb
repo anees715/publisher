@@ -10,7 +10,9 @@
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Write an Article", new_article_path, class: "write" %></li>
           <% if user_signed_in? %>
-          <li><%= image_tag current_user.user_profile.avatar.url, class: "header-avatar" %></li>
+          <li>
+           <%= image_tag current_user.user_profile.avatar.url, class: "header-avatar" %>
+          </li>
           <li><%= link_to current_user.username.capitalize, current_user %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
           <% else %>
