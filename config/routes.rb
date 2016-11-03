@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root 'articles#index'
   devise_for :users
   resources :users
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :articles do
+  collection do
+    get 'deleted'
+  end
     resources :comments
   end
   # The priority is based upon order of creation: first created -> highest priority.

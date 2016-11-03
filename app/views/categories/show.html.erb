@@ -1,7 +1,15 @@
 <% @articles.each do |article| %>
 <div class="col-md-6 col-md-offset-1">
   <div class="article">
-  	<div class="avatar"><%= image_tag article.user.user_profile.avatar.url %></div>
+  	<div class="avatar">
+      <% if article.user.user_profile != nil %>
+      <% if article.user.user_profile.avatar != nil %>
+      <%= image_tag article.user.user_profile.avatar.url %>
+      <% end %> 
+      <% else %>
+      <%= image_tag image_url('blank.png')%>    
+      <% end %>
+    </div>
   	<div class="user-details">
        <p><%= link_to article.user.username.capitalize, current_user %> in 
            <% article.categories.take(2).each do |category| %>

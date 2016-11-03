@@ -46,6 +46,10 @@ class ArticlesController < ApplicationController
 		redirect_to articles_path
 	end
 
+	def deleted
+		@deleted = Article.only_deleted
+	end
+
 private
 
 	def article_params

@@ -5,6 +5,8 @@ gem 'sass-rails', '>= 3.2'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'mini_magick'
 gem 'pry'
+gem 'sentimental', '~> 1.4'
+gem "paranoia", "~> 2.2"
 
 group :development, :test do
   gem 'sqlite3'

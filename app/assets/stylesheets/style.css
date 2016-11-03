@@ -217,3 +217,16 @@ nav.navbar-default{
 	height: 150px;
 	border-radius: 50%;
 }
+.recent-comments{
+
+}
+.recent-comments li{
+	font-size: 18px;
+	border: 1px solid #efefef;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+.recent-comments li span{
+	font-size: 14px;
+	font-style: italic;
+}

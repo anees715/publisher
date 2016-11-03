@@ -11,12 +11,12 @@
           <li><%= link_to "Write an Article", new_article_path, class: "write" %></li>
           <% if user_signed_in? %>
           <li>
-            <% if current_user.user_profile != nil %>
+            <% if current_user.user_profile != nil && current_user.user_profile.avatar != nil%>
             <%= image_tag current_user.user_profile.avatar.url, class: "header-avatar" %></li>
-            <li><%= link_to current_user.username.capitalize, current_user %></li>
             <% else %>
-            <li><%= link_to current_user.username.capitalize, new_user_profile_path %></li>
+            <%= image_tag image_url('blank.png'), class: "header-avatar" %> 
             <% end %>
+            <li><%= link_to current_user.username.capitalize, current_user %></li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
             <% else %>
             <li><%= link_to "Sign in", new_user_session_path, style: "padding-right:5px" %></li>

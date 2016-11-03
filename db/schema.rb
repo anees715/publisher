@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031212734) do
+ActiveRecord::Schema.define(version: 20161103083140) do
 
   create_table "article_categories", force: :cascade do |t|
     t.integer  "article_id"
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20161031212734) do
     t.datetime "updated_at",                 null: false
     t.string   "featured_image"
     t.integer  "comments_count", default: 0, null: false
+    t.datetime "deleted_at"
   end
+
+  add_index "articles", ["deleted_at"], name: "index_articles_on_deleted_at"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"

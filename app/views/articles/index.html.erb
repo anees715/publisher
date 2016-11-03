@@ -1,9 +1,18 @@
 <div class="col-md-6 col-md-offset-1 pull-left">
     <% @articles.each do |article| %>
     <div class="article">
-     <div class="avatar"><%= image_tag article.user.user_profile.avatar.url unless article.user.user_profile.avatar.url.blank? %></div>
+     <div class="avatar">
+      <% if article.user.user_profile != nil %>
+        <% if article.user.user_profile.avatar != nil %>
+        <%= image_tag article.user.user_profile.avatar.url %>
+        <% end %> 
+      <% else %>
+      <%= image_tag image_url('blank.png')%>    
+    <% end %> 
+
+    </div>
      <div class="user-details">
-       <p><%= link_to article.user.username.capitalize, user_profile_path(article.user.user_profile) %> in 
+       <p><%= link_to article.user.username.capitalize, user_profile_path(article.user.user_profile) if article.user.user_profile != nil %> in 
            <% article.categories.take(2).each do |category| %>
            <%= link_to category.name, category_path(category) %>
            <% end %>

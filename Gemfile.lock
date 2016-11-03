@@ -95,6 +95,8 @@ GEM
     nokogiri (1.6.8.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    paranoia (2.2.0)
+      activerecord (>= 4.0, < 5.1)
     pg (0.18.1-x86-mingw32)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -142,6 +144,8 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sentimental (1.4.0)
+      json (~> 1.8, >= 1.8.3)
     slop (3.6.0)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
@@ -183,11 +187,13 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
+  paranoia (~> 2.2)
   pg
   pry
   rails (= 4.2.5.1)
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
+  sentimental (~> 1.4)
   sqlite3
   turbolinks
   tzinfo-data
